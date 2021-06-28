@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import './Cart.css'
 
 const Cart = (props) => {
     const cart = props.cart;
@@ -32,15 +30,13 @@ const Cart = (props) => {
 
     return (
         <div>
-            <h4>Order Summery</h4>
-            <p>Item:{cart.length}</p>
-            <p>Product Price:{formatNumber(total)}</p>
-            <p><small>Shipping:{shipping}</small></p>
-            <p><small>Tax: {tax}</small></p>
-            <p>Total:{grandTotal}</p>
-            <Link to='/review'>
-                <button className="main-button"><FontAwesomeIcon icon={faShoppingCart} /> Review Order</button>
-            </Link>
+            <h4 className="cart-title">Order Summery</h4>
+            <p className="cart-body">Item: <span> {cart.length} </span> </p>
+            <p className="cart-body">Product Price: <span> {formatNumber(total)} </span> </p>
+            <p className="cart-body"><small>Shipping: <span> {shipping} </span> </small></p>
+            <p className="cart-body"><small>Tax:  <span> {tax} </span> </small></p>
+            <p className="total">Total: <span> {grandTotal} </span> </p>
+            {props.children}
         </div>
     );
 };

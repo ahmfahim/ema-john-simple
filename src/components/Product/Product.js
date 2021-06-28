@@ -8,16 +8,16 @@ const Product = (props) => {
     const{img, name, seller, price, stock, key}=props.product;
     return (
         <div className="product">
-            <div className="">
+            <div className="product-img">
                 <img src={img} alt="" />
             </div>
             <div className="product-details">
                 <h4 className="product-name">
                     <Link to={"/product/"+ key }>{name}</Link>
                 </h4>
-                <p><small>by: {seller}</small></p>
-                <h3>${price}</h3>
-                <p>Only {stock} left in stock - Order soon</p>
+                <p className="seller-deals"><small>by: {seller}</small></p>
+                <h3 className="product-price">${price}</h3>
+                <p className="product-stock" >Only {stock} left in stock - Order soon</p>
                 {props.showAddToCart && <button
                     className="main-button"
                     onClick={()=>props.handleAddProduct(props.product)}
